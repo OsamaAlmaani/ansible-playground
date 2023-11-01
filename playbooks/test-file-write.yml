@@ -1,0 +1,7 @@
+- name: create a file test
+  hosts: "{{ hosts }}"
+  become: no
+  tasks:
+    - name: create the file
+      shell: |
+        touch ~/test.txt
