@@ -1,5 +1,5 @@
 - name: create a file test
-  hosts: "{{ hosts }}"
+  hosts: "{{ servers }}"
   become: no
   tasks:
     - name: create the file
