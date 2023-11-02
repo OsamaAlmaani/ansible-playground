@@ -5,7 +5,7 @@
     - name: run deployment script
       command:
         cmd: test.sh
-        chdir: /home/gis/www/gce-maintenance-new/
+        chdir: ~/www/gce-maintenance-new
       register: results
     - debug:
         var: results.stdout
