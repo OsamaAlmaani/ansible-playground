@@ -3,9 +3,9 @@
   become: no
   tasks:
     - name: run deployment script
-    - script: test.sh
-      register: results
+      ansible.builtin.script: test.sh
       args:
         chdir: /home/gis/www/gce-maintenance-new/
+      register: results
     - debug:
         var: results.stdout
