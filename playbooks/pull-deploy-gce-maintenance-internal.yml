@@ -1,9 +1,9 @@
-- name: Build maintenance backend (local - no pull)
+- name: GCE Maintenance Internal (master2) - Pull & Deploy
   hosts: "node-ibm"
   become: no
   tasks:
     - name: run deployment script
-      command: ./pull.sh {{ rsa_passphrase }}
+      command: ./build-ansible.sh {{ rsa_passphrase }}
       args:
         chdir: /home/gis/www/gce-maintenance-new
       register: results
