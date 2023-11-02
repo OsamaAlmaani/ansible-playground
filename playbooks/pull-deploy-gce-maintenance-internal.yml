@@ -6,7 +6,7 @@
       command: ./pull.sh
       args:
         chdir: /home/gis/www/gce-maintenance-new
-        stdin: "{{ rsa_passphrase }}"
+        stdin: "{{ rsa_passphrase }}\n"
       register: results
     - debug:
         var: results.stdout
