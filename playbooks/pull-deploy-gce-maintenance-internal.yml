@@ -2,15 +2,10 @@
   hosts: "{{ servers }}"
   become: no
   tasks:
-    - name: create the file
-      shell: |
-        cd /home/gis/www/gce-maintenance-new/
-        ./build.sh
-
-        expect "Enter passphrase for key '/home/gis/.ssh/id_rsa':"
-        send "{{ github_node_rsa_password }}\n
-
-        expect "Enter passphrase for key '/home/gis/.ssh/id_rsa':"
-        send "{{ github_node_rsa_password }}\n
-
-    - debug: var=ps.stdout_lines
+    - name: run deployment script
+    - script: test.sh
+      register: results
+      args:
+        chdir: /home/gis/www/gce-maintenance-new/
+    - debug:
+        var: results.stdout
