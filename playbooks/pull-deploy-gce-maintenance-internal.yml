@@ -4,7 +4,7 @@
   tasks:
     - name: run deployment script
       command:
-        cmd: ./test.sh
+        cmd: test.sh
         chdir: ~/www/gce-maintenance-new
       register: results
     - debug:
