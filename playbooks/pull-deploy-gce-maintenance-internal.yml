@@ -3,7 +3,10 @@
   become: no
   tasks:
     - name: run deployment script
-      command: /home/gis/www/gce-maintenance-new/test.sh
+      command:
+        cmd: test.sh
+        chdir: /home/gis/www/gce-maintenance-new/
       register: results
     - debug:
         var: results.stdout
+
