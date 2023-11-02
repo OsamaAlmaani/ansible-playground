@@ -1,9 +1,9 @@
-- name: create a file test
-  hosts: "servers"
+- name: Build maintenance backend (local - no pull)
+  hosts: "node-ibm"
   become: no
   tasks:
     - name: run deployment script
-      command: ./test.sh
+      command: ./build-backend-local.sh
       args:
         chdir: /home/gis/www/gce-maintenance-new
       register: results
