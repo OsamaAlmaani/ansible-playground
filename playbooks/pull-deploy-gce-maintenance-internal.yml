@@ -12,3 +12,5 @@
 
         expect "Enter passphrase for key '/home/gis/.ssh/id_rsa':"
         send "{{ github_node_rsa_password }}\n
+
+    - debug: var=ps.stdout_lines
