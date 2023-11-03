@@ -1,0 +1,19 @@
+- name: GCE IFMS Docker - Pull & Deploy
+  hosts: "docker-ibm"
+  become: no
+  tasks:
+    - name: pull images
+      command: docker compose pull
+      args:
+        chdir: ~/docker/ifms
+      register: results
+    - debug:
+        var: results.stdout
+    
+    - name: run new images
+      command: docker compose up -d
+      args:
+        chdir: ~/docker/ifms
+      register: results
+    - debug:
+        var: results.stdout
