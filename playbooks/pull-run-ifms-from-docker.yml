@@ -3,7 +3,7 @@
   become: no
   tasks:
     - name: pull images
-      shell: docker compose pull
+      shell: docker-compose pull
       args:
         chdir: ~/docker/ifms
       register: results
@@ -11,7 +11,7 @@
         var: results.stdout
     
     - name: run new images
-      shell: docker compose up -d
+      shell: docker-compose up -d
       args:
         chdir: ~/docker/ifms
       register: results
